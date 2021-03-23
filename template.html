@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pdf2htmlEX" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <style type="text/css">
+    #print-container {
+      width: 280mm;
+      height: 100%;
+      background-color: #fff;
+      padding: 10px 20px;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      background-color: #262626;
+    }
+
+    img.logo {
+      width: 100px;
+      height: 60px;
+    }
+
+    label {
+      font-size: 14px;
+    }
+
+    label.title {
+      font-size: 16px;
+    }
+
+    ul {
+      margin: unset;
+    }
+
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+      width: 92%;
+      font-size: 14px;
+    }
+
+    td,
+    th {
+      vertical-align: baseline;
+      border: 1px solid black;
+      font-weight: 500;
+    }
+
+    td {
+      padding-right: 5px;
+      padding-left: 5px;
+      font-size: 14px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-info {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-top {
+      font-size: 22px;
+    }
+
+    .header-bottom {
+      font-size: 11px;
+    }
+
+    .field-header {
+      text-align: right;
+    }
+
+    .section-title {
+      border-top: 2px solid #000;
+      border-bottom: 2px solid #000;
+      padding: 0px 5px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .section-content {
+      padding: 10px;
+      line-height: 22px;
+      width: 100%;
+    }
+
+    .section-content.full {
+      width: 100%;
+    }
+
+    .section-content.full.two-col {
+      display: grid;
+      grid-template-columns: 47% 47%;
+      grid-column-gap: 50px;
+    }
+
+    .section-content.full.two-col.paragraph {
+      padding: 0px 15px;
+      width: fit-content;
+      justify-content: center;
+    }
+
+    .section-content.full.two-col.sign {
+      padding-bottom: 65px;
+    }
+
+    .sub-section {
+      margin-left: 48px;
+    }
+
+    .sub-section-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 20px;
+      width: 100%;
+      margin-left: 20px;
+    }
+
+    p {
+      text-align: justify;
+      font-size: 13px;
+    }
+
+    .footer {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .sign-right,
+    .sign-left {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      line-height: 12px;
+    }
+
+    .sign-name {
+      padding-bottom: 2px;
+      border-bottom: 1px solid black;
+      margin-bottom: 2px;
+      display: block;
+      width: max-content;
+      padding-left: 50px;
+      padding-right: 50px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .sign-name.blank {
+      min-width: 200px;
+      margin-top: 14px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+  <script>
+    function genPDF() {
+      var content = document.getElementById("print-container");
+      const divHeight = content.clientHeight;
+      const divWidth = content.clientWidth;
+      const ratio = divHeight / divWidth;
+      const pdfDOC = new jsPDF("p", "mm", "a4");
+      html2canvas(content, {
+        useCORS: true,
+        scale: 1,
+        dpi: 192
+      }).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png', 1);
+        const pdfDOC = new jsPDF("p", "mm", "a4");
+        const width = pdfDOC.internal.pageSize.getWidth();
+        let height = pdfDOC.internal.pageSize.getHeight();
+        height = ratio * width;
+        pdfDOC.addImage(imgData, 'PNG', 5, 5, width - 10, height - 10);
+        pdfDOC.addPage();
+        pdfDOC.addImage(imgData, 'PNG', 5, 5, width - 10, height - 10);
+        pdfDOC.save('template.pdf');
+      });
+    }
+  </script>
+  <title></title>
+</head>
+
+<body>
+  <div id="print-container" style="margin: auto;">
+    <div class="header">
+      <img class="logo" crossorigin="anonymous" src="https://i.ibb.co/1vLVLQR/one-puhunan.png" />
+      <div class="header-info">
+        <span class="header-top">CreditAccess Philippines Financing Company, Inc.</span>
+        <span class="header-bottom">(Promissory Note, Disclosure Statement, and Amortization Schedule)</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="field-header">
+        <label class="label" style="margin-right: 10px;">CLIENT ID : 2056624</label>
+      </div>
+      <div class="section">
+        <div class="section-title">
+          <label class="title">LOAN DETAILS</label>
+        </div>
+        <div class="section-content">
+          <label class="label-header">CUSTOMER DETAILS :</label>
+          <div class="sub-section">
+            <label class="label">CLIENT NAME :</label>
+            <label style="margin-left: 30px;" class="value">TOMAS, ROCHELLE OMBINA</label>
+            <label style="margin-left: 100px;" class="label">DATE OF BIRTH :</label>
+            <label style="margin-left: 30px;" class="value">07/21/1985</label>
+          </div>
+          <div class="sub-section">
+            <label class="label">HOME ADDRESS :</label>
+            <label style="margin-left: 18px;" class="value">PUROK ESKWELA Paligui APALIT PAMPANGA REGION III (CENTRAL
+              LUZON)</label>
+          </div>
+          <label class="label-header">REGISTERED CONTACT DETAILS :</label>
+          <div class="sub-section">
+            <label class="label">CENTER NAME:</label>
+            <label style="margin-left: 30px;" class="value">PALIGUI 01</label>
+            <label style="margin-left: 217px;" class="label">MOBILE NO.1 :</label>
+            <label style="margin-left: 45px;" class="value">09756523179</label>
+          </div>
+          <div class="sub-section">
+            <label class="label">MEETING DAY :</label>
+            <label style="margin-left: 30px;" class="value">Wednesday 1st and 3rd Week</label>
+            <label style="margin-left: 125px;" class="label">MOBILE NO.2 :</label>
+            <label style="margin-left: 45px;" class="value">09756523179</label>
+          </div>
+          <div class="sub-section">
+            <label class="label">MEETING TIME :</label>
+            <label style="margin-left: 25px;" class="value">1:00 AM</label>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">
+          <label class="title">DISCLOSURE STATEMENT</label>
+        </div>
+        <div class="section-content full">
+          <div class="sub-section-two">
+            <div class="content-left">
+              <div>
+                <label class="label">DISBURSEMENT DATE:</label>
+                <label class="value" style="margin-left: 150px;">05-Nov-2020</label>
+              </div>
+              <div>
+                <label class="label">LOAN AMOUNT:</label>
+                <label class="value" style="margin-left: 193px;">12,000.00</label>
+              </div>
+              <div>
+                <label class="label">OTHER CHARGES/DEDUCTIONS COLLECTED</label>
+                <ul style="list-style-type:none;">
+                  <li>a. Documentary Stamps <span style='margin-left: 122px;'>0.00</span></li>
+                  <li>b. Mandatory Credit Insurance <span style='margin-left: 80px;'>0.00</span></li>
+                  <li>c. Others <span style='margin-left: 218px;'>0.00</span></li>
+                  <li>d. Processing Fee <span style='margin-left: 164px;'>0.00</span></li>
+                </ul>
+              </div>
+              <div>
+                <label class="label">NET PROCEEDS OF LOAN</label>
+                <div>
+                  <span style="margin-left: 25px;">(Item 1 less Items 2 and 3)</span>
+                  <span style="margin-left: 102px;">12,000.00</span>
+                </div>
+                </label>
+              </div>
+              <div>
+                <label class="label">SCHEDULE OF PAYMENTS</label>
+                <ul style="list-style-type:none;">
+                  <li>a. Installment Payments</li>
+                </ul>
+                <span style="margin-left: 40px;">(Please see attached amorization schedule)</span>
+              </div>
+              <div>
+                <label class="label">EFFECTIVE INTEREST RATE PER MONTH</label>
+                <div>
+                  <span style="margin-left: 40px;">(Interest and Other Charges)</span>
+                  <span style="margin-left: 80px;">6.275 %</span>
+                </div>
+              </div>
+              <div style="text-align: left;">
+                <label class="label">CONDITIONAL CHARGES THAT MAY BE IMPOSED</label>
+                <br>
+                <span style="padding-bottom: 15px;border-bottom: 1px solid #000;width: 420px;display: block;">(if
+                  applicable). Please specify manner of imposition :</span>
+                <ul style="list-style-type:none;">
+                  <li style="font-size: 15px;width: 390px;padding-bottom: 15px;border-bottom: 1px solid #000;">a.
+                    Prepayment Fee: 5% of O/B or P500, whichever is higher (only
+                    for clients not availing Repeat Loan) :</li>
+                </ul>
+              </div>
+            </div>
+            <div class="content-right">
+              <label class="label">AMORTIZATION SCHEDULE :</label>
+              <table>
+                <thead>
+                  <tr>
+                    <th style="line-height: 17px;">Installment <p style="margin: unset;">Date(A)</p>
+                    </th>
+                    <th>Principal(B)</th>
+                    <th>Interest(C)</th>
+                    <th>Total(D)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>TOTAL:</td>
+                    <td style="text-align: right;">0.00</td>
+                    <td style="text-align: right;">0.00</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">
+          <label class="title">PROMISORY NOTE</label>
+        </div>
+        <div class="section-content full two-col paragraph">
+          <div>
+            <p>
+              Para sa halagang natanggap na nakasaad sa Disclosure Statement at
+              Amortization Schedule, bilang karagdagang PUHUNAN, sa pamamagitan
+              nito, AKO ay nangangako na magbayad na alinsunod sa Disclosure
+              Statement at Amortization Schedule, nang walang ibang pangangailangan
+              mula sa CreditAccess Philippines Financing Company Inc. (CAPFCI) na
+              may opisina sa 42nd Floor,One San Miguel Avenue Office Condominium
+              San Miguel Avenue cor. Shaw Blvd., Bgy. San Antonio Ortigas Center,
+              Pasig City 1600.
+            </p>
+            <p>
+              Ang pagkabigong magbayad ng kabuuuan o anumang hulog dito, kapag
+              oras na ng bayaran at walang pangangailangan ng paunang abiso o
+              demand, ay nangangahulugang pagpalya, dahilan ng anumang pagkilos ng
+              anumang uri ng laban sa akin/amin ng CAPFCI. at dapat singilin ang
+              buong halaga ng utang nang walang paunang abiso.
+            </p>
+            <p>
+              Ito ay lalong nauunawaan na ang anumang pagbabayad o pagpapalawig na
+              ipinagkaloob ay hindi nangangahulugang pagbabago o mag-iba ang mga
+              kondisyon ng orihinal na kasunduang obligasyon, at ang anumang
+              pagbabayad o pagganap ay dapat naituring bilang nakasulat na pag
+              tanggap o pagkilala sa kasunduang obligasyon na hindi dapat maka-abala
+              sa “prescriptive period.”
+            </p>
+          </div>
+          <div>
+            <p>
+              Ako ay hayagang sumasang-ayon na masakop ng anumang mga extension
+              ng pagbabayad at/o pag-renew ng kasunduang ito, sa kabuuan o bahagi,
+              na maaaring ipinagkaloob sa sinuman o sa aming lahat, nang walang
+              pangangailangan ng aming mga pahintulot, sa ilalim ng naturang mga
+              tuntunin at kundisyon nakasaad dito nang hindi nangangailangan ng
+              pagpapatupad ng isang bagong o isang kasunduan sa pag-renew.
+            </p>
+            <p>
+              Ako’y hayagang sumang-ayon na magbayad ng tatlumpung porsyento
+              (30%) ng kabuuang halaga ng dapat bayaran sa talang ito bilang mga
+              bayad sa abogado, na hindi sa anumang kaso ay dapat na mas mababa sa
+              Dalawang Libong Piso (Php 2,000.00), eksklusibong lahat ng mga bayarin
+              at gastos na pinapayagan ng batas.
+            </p>
+            <p>
+              Ang CAPFCI. ay maaaring tumanggap ng anumang pagbabayad (bahagi),
+              pag-renew at pagpapalawig ng pagbabayad, may nakalaang karapatan sa
+              pagdulog laban sa anuman at lahat ng mga co- borrowers na pinag-
+              uusapan dito at bawat isa at ang bawat nag-endorso dito.
+            </p>
+            <p>
+              Ako ay nangangako na hindi gamitin ang pautang para sa ibang layunin .
+              Kung hindi ang CAPFCI. ay may karapatan na pawalang-bisa ang
+              kasunduan ng pautang at maaaring singilin lahat ng pinautang.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="section">
+        <div class="section-content full two-col sign">
+          <div class="sign-left">
+            <label class="sign-name">TOMAS, ROCHELLE OMBINA</label>
+            <label class="sign-label">( Lagda sa ibabaw ng naka-print na pangalan )</label>
+          </div>
+          <div class="sign-right">
+            <label class="sign-name blank"></label>
+            <label class="sign-label">(Signature of Branch Manager Over Printed Name)</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg onclick="genPDF()" style="cursor: pointer;position: absolute;right: 10px;top: 10px;" width="30" height="28"
+    viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect width="30" height="28" fill="url(#pattern0)" />
+    <defs>
+      <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use xlink:href="#image0" transform="translate(-0.0555556) scale(0.00555556 0.005)" />
+      </pattern>
+      <image id="image0" width="200" height="200"
+        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAh9QTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////5JjstAAAALV0Uk5TADKZ2/rZly8KnP+WCMK8B5uS/iqaj93SAf30BPwSbbDRsnEVFnOz0K9qEPP1dQIDeffxaaUFqZV3p6tyHPj2GYKjf8qhpsbvn6TtnaLeoJ5IRL+Uuh3m5BvpkOcnK+qOKCyMk+gpLeuJLuyHhY0w7ouGMzXwNjfyNDk6Ozg8PT9AQj5DQUZH+UpLTUlOUPtMUVIJMVQLqlN4JiWIcH5efVsadsTXvSNcVoR0JGtPDUXcY7hgBkP8/lIAAATUSURBVHic7Zz5dxNVFMdfSqBlUGmLyGsDtOAGtiSmFrBKS0UQLS5FqQoKCirFqoAFW5YKFIQiUFxwQQH3fd/+QA2RdubNzWTejJN7OX4/v+XMu3M+n5OcTM4keUoBAAAAAIQmVTUlnZ46rZrbIyY1051/mXENt0scaq51JrhuJrdNDGodF3XcNtFJuTuc+lncPpG53hPizOb2icwN3pA53D5R0Q3ekEZuoahkvB3OXG6hqCBEGgiRBkKkgRBpIEQaCJEGQqSBEGkgRBoIkQZCpIEQaSBEGgiRBkKkgRBpIEQaCJEGQqSBEGkgRBoIkQZCpIEQaSBEGgiRBkKkgRBpIEQaCJHG1RQyb35Tc/OChTeSB0OG3HTzLXNuXbT4tgQ1y6HntxQVW5dkicOhQnK354tH2+7QCeuWRLv+etSe8R8PE7J02eTx5Vwld7otO/wlIUKW3uVecHcFpAlWdHo023PmgvIhmWWeBV0rKyJu0m143mOWlA3JdBgrVlVI3cu9hoWz2igpF5JZY57hvorJu1lrajj3e9+7yoTkHvCdoKeC+pN0+TycdZ6S4JDcg/55nj/4PeQXcWrdJYEhuYeJ8SkVTijSTpg4Va6SoJDsI9T06opHFOilVJwZk1e1gJDsdHJ4PUPGPxf2R0mZxyZKSodka8nRDUyX9r7HSZ26KzolQ7JV5OATT/J0KDVrIym0SQeH6Gnk2FNPc3UotXkLqfSMDgrRy+mOZ/k6lNpKl2y7XEKH6OfIkedf4OxQans/qbVDlwrRm8iBjez7KLw4QIq9pOkQPZtcvmUzd4dS1T2k2suaCtGvkIv7t3JXFNi5i5TrJkL0bnLpwHbuhiIpumSVL0TvoDvE7MeT8n+iv/ycGI8bXiWX9YjpUGqQLgnFrp3c9m727I3ckeJ29/JaW7SOtYPc5iZDw1E69u7j9vazP0JJ2x5ua4oDLdYdQ9zONAcb7TqGR7iNS/G6Vcnwfm7f0hyyKGk5wG0bxOHWsB2NB7ldgzlC3LYjOw5xm5ZjNFRJ61Fuz/Icy4foOMxtGYb1ZUu63uB2DMfxzuCO/Ci3YVhOBJbkj3H7had3LKCD5wZvRE6WLOk8zu1mx5vpEh0nuM1sOUWWjJ3m9rLnDFEydpLbKgrjZ82O9FvcTtF42yhJn+I2iso7cz0dZ7g83j03OlgT6wzvuUrOjsc61fv7Rs9F21a7+oPC9TndFOv+wIcTn4VbY72uRhYUXqb5Dvub9vr8lc1667vjfEX5UVPxJIs+jnGS7IWJp/Wi7ewl14t7dwwHpfo+ufTpZ5/HOkWdS+YLu9Gjnrcb5qvYuNulwe4W0peekGa2H+kV0F95ZL62mf3GuJKx3vgfMmRWWMx+a8wuTswyBBcNme8sZpcYs98nZhkC82sumzeu88bshcQsQ7DNkPnBYhYhSYAQhZBkQIhCSDIgRCEkGRCiEJIMCFEISQaEKIQkA0IUQpIBIQohyYAQhZBkQIhCSDIgRCEkGRCi/CFVPzKy7j8MEQVCpIEQaSBEGv/LkIXcskH8ZBHyM7dsEL0WIfN8P2uXQ/4XixBFbOIlhVqbDtUXeceApBmw3Dnw1zL/XOOi64hdh1Ijv3E7U0yNsCPBzN83DNRzi7up7//jz7/sOwAAAABwFfI3Tl9DmW/szPAAAAAASUVORK5CYII=" />
+    </defs>
+  </svg>
+
+</body>
+
+</html>
